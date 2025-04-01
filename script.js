@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
+        cursorInner.style.left = e.clientX + 'px';
+        cursorInner.style.top = e.clientY + 'px';
     });
     
     document.addEventListener('mousedown', () => {
@@ -34,35 +36,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        
-        // Animate menu bars
-        const bars = document.querySelectorAll('.bar');
-        bars.forEach(bar => bar.classList.toggle('active'));
-        
-        if (navLinks.classList.contains('active')) {
-            bars[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
-            bars[1].style.opacity = '0';
-            bars[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
-        } else {
-            bars[0].style.transform = 'none';
-            bars[1].style.opacity = '1';
-            bars[2].style.transform = 'none';
-        }
+        menuToggle.classList.toggle('active');
     });
     
-    // Close mobile menu when clicking on a link
-    const navItems = document.querySelectorAll('.nav-links a');
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                
-                const bars = document.querySelectorAll('.bar');
-                bars[0].style.transform = 'none';
-                bars[1].style.opacity = '1';
-                bars[2].style.transform = 'none';
-            }
-        });
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
     });
     
     // Header scroll effect
@@ -77,21 +59,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Active navigation link based on scroll position
     const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+    
     window.addEventListener('scroll', () => {
         let current = '';
-        
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            
-            if (window.scrollY >= (sectionTop - 200)) {
+            if (pageYOffset >= sectionTop - 60) {
                 current = section.getAttribute('id');
             }
         });
         
         navItems.forEach(item => {
             item.classList.remove('active');
-            if (item.getAttribute('href') === `#${current}`) {
+            if (item.getAttribute('href').slice(1) === current) {
                 item.classList.add('active');
             }
         });
@@ -155,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         stats.forEach(stat => {
             const target = parseInt(stat.getAttribute('data-count'));
-            const duration = 2000; // 2 seconds
+            const duration = 2000; // Restored to original 2 seconds
             const step = target / (duration / 20); // Update every 20ms
             let current = 0;
             
@@ -184,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = document.getElementById('email').value;
             const company = document.getElementById('company').value;
             const message = document.getElementById('message').value;
-            
+
             // Simple form validation
             if (!name || !email || !company || !message) {
                 alert('Please fill in all fields');
