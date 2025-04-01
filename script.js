@@ -2,6 +2,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Custom cursor
     const cursor = document.querySelector('.cursor');
+    const cursorInner = document.createElement('div');
+    cursorInner.classList.add('cursor-inner');
+    cursor.appendChild(cursorInner);
     
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';

@@ -375,6 +375,9 @@ nav {
     display: flex;
     align-items: center;
     gap: 50px;
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .about-image {
@@ -383,32 +386,38 @@ nav {
 }
 
 .about-image img {
+    width: 100%;
     border-radius: 10px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .about-content {
     flex: 1;
+    padding: 2rem;
 }
 
 .about-content h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: var(--text-color);
 }
 
 .about-content p {
     margin-bottom: 20px;
     color: var(--text-secondary);
+    line-height: 1.8;
 }
 
 .stats-container {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
+    gap: 2rem;
 }
 
 .stat-item {
     text-align: center;
+    flex: 1;
 }
 
 .stat-number {
@@ -416,6 +425,7 @@ nav {
     font-weight: 700;
     color: var(--accent-color);
     display: block;
+    margin-bottom: 0.5rem;
 }
 
 .stat-label {
@@ -537,39 +547,48 @@ nav {
 
 /* Contact Section */
 .contact {
-    display: flex;
-    gap: 50px;
+    padding: 6rem 2rem;
+    background: var(--background-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-form {
-    flex: 1;
+    background: var(--card-bg-color);
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form h2 {
     font-size: 2.5rem;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
 .contact-form p {
     color: var(--text-secondary);
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
     position: relative;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
+    border-radius: 0.5rem;
     color: var(--text-color);
     font-family: 'Poppins', sans-serif;
-    transition: all var(--transition-speed) ease;
+    transition: all 0.3s ease;
 }
 
 .form-group textarea {
@@ -579,29 +598,29 @@ nav {
 
 .form-group label {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 1rem;
+    left: 1rem;
     color: var(--text-secondary);
     pointer-events: none;
-    transition: all var(--transition-speed) ease;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--accent-color);
     outline: none;
-    background-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .form-group input:focus + label,
 .form-group textarea:focus + label,
 .form-group input:not(:placeholder-shown) + label,
 .form-group textarea:not(:placeholder-shown) + label {
-    top: -10px;
-    left: 10px;
+    top: -0.5rem;
+    left: 0.5rem;
     font-size: 0.8rem;
-    background-color: var(--background-color);
-    padding: 0 5px;
+    background: var(--card-bg-color);
+    padding: 0 0.5rem;
     color: var(--accent-color);
 }
 
@@ -611,53 +630,67 @@ nav {
 }
 
 .contact-info {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 2rem;
 }
 
 .info-item {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--card-bg-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .info-icon {
-    font-size: 1.5rem;
-    color: var(--accent-color);
-    margin-right: 20px;
+    width: 3rem;
+    height: 3rem;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--background-color);
+    font-size: 1.2rem;
 }
 
 .info-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+    margin: 0;
+    color: var(--text-color);
 }
 
 .info-item p {
+    margin: 0.5rem 0 0;
     color: var(--text-secondary);
 }
 
 .social-links {
     display: flex;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
 .social-icon {
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--card-bg-color);
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.05);
     display: flex;
-    justify-content: center;
     align-items: center;
-    transition: all var(--transition-speed) ease;
+    justify-content: center;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-5px);
+    background: var(--accent-color);
+    color: var(--background-color);
+    transform: translateY(-3px);
 }
 
 /* Footer */
@@ -823,10 +856,30 @@ footer {
 
     .about {
         flex-direction: column;
+        text-align: center;
+        padding: 4rem 2rem;
+    }
+
+    .about-image {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .stats-container {
+        justify-content: center;
     }
 
     .contact {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-form {
+        padding: 2rem;
     }
 }
 
@@ -884,6 +937,39 @@ footer {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+    }
+
+    .about {
+        padding: 3rem 1rem;
+    }
+
+    .about-content h2 {
+        font-size: 2rem;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .stat-item {
+        padding: 1rem;
+        background: var(--card-bg-color);
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact {
+        padding: 3rem 1rem;
+    }
+
+    .contact-form h2 {
+        font-size: 2rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
     }
 }
 
