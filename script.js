@@ -1,211 +1,115 @@
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', function() {
+// script.js
+document.addEventListener("DOMContentLoaded", function () {
     // Custom cursor
-    const cursor = document.querySelector('.cursor');
-    const cursorInner = document.createElement('div');
-    cursorInner.classList.add('cursor-inner');
+    const cursor = document.querySelector(".cursor");
+    const cursorInner = document.createElement("div");
+    cursorInner.classList.add("cursor-inner");
     cursor.appendChild(cursorInner);
-    
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        cursorInner.style.left = e.clientX + 'px';
-        cursorInner.style.top = e.clientY + 'px';
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+      cursorInner.style.left = e.clientX + "px";
+      cursorInner.style.top = e.clientY + "px";
     });
-    
-    document.addEventListener('mousedown', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+    document.addEventListener("mousedown", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(0.8)";
     });
-    
-    document.addEventListener('mouseup', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    document.addEventListener("mouseup", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(1)";
     });
-    
-    // Hide loader after page loads
+  
+    // Hide loader then start animations
     setTimeout(() => {
-        const loader = document.querySelector('.loader');
-        loader.classList.add('hidden');
-        
-        // Start animations after loader is hidden
-        startAnimations();
+      document.querySelector(".loader").classList.add("hidden");
+      startAnimations();
     }, 2500);
-    
-    // Navigation menu toggle for mobile
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuToggle.classList.toggle('active');
+  
+    // Mobile nav toggle
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.classList.toggle("active");
     });
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-            navLinks.classList.remove('active');
-            menuToggle.classList.remove('active');
-        }
+    document.addEventListener("click", (e) => {
+      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        navLinks.classList.remove("active");
+        menuToggle.classList.remove("active");
+      }
     });
-    
+  
     // Header scroll effect
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+    const header = document.querySelector("header");
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 50);
     });
-    
-    // Active navigation link based on scroll position
-    const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('.nav-links a');
-    
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - 60) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href').slice(1) === current) {
-                item.classList.add('active');
-            }
-        });
+  
+    // Active nav link on scroll
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll(".nav-links a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const top = section.offsetTop;
+        const height = section.clientHeight;
+        if (pageYOffset >= top - 60) current = section.getAttribute("id");
+      });
+      navItems.forEach((a) => {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+      });
     });
-    
-    // Testimonial slider
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
+  
+    // Testimonial slider (if present)
+    const slides = document.querySelectorAll(".testimonial-slide");
+    const dots = document.querySelectorAll(".dot");
     let currentSlide = 0;
-    
     function showSlide(n) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        currentSlide = (n + slides.length) % slides.length;
-        
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
+      slides.forEach((s) => s.classList.remove("active"));
+      dots.forEach((d) => d.classList.remove("active"));
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add("active");
+      dots[currentSlide].classList.add("active");
     }
-    
-    prevBtn.addEventListener('click', () => {
-        showSlide(currentSlide - 1);
-    });
-    
-    nextBtn.addEventListener('click', () => {
-        showSlide(currentSlide + 1);
-    });
-    
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showSlide(index);
-        });
-    });
-    
-    // Auto slide for testimonials
-    setInterval(() => {
-        showSlide(currentSlide + 1);
-    }, 5000);
-    
-    // Animate on scroll
+    document.querySelector(".prev-btn")?.addEventListener("click", () => showSlide(currentSlide - 1));
+    document.querySelector(".next-btn")?.addEventListener("click", () => showSlide(currentSlide + 1));
+    dots.forEach((dot, i) => dot.addEventListener("click", () => showSlide(i)));
+    setInterval(() => showSlide(currentSlide + 1), 5000);
+  
+    // Scroll-triggered animations and stats
     function animateOnScroll() {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementPosition < windowHeight - 100) {
-                element.classList.add('visible');
-            }
-        });
-    }
-    
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Animate stats counter
-    function animateStats() {
-        const stats = document.querySelectorAll('.stat-number');
-        
-        stats.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-count'));
-            const duration = 2000; // Restored to original 2 seconds
-            const step = target / (duration / 20); // Update every 20ms
-            let current = 0;
-            
-            const counter = setInterval(() => {
-                current += step;
-                
-                if (current >= target) {
-                    stat.textContent = target;
-                    clearInterval(counter);
-                } else {
-                    stat.textContent = Math.floor(current);
-                }
-            }, 20);
-        });
-    }
-    
-    // Contact form submission
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const company = document.getElementById('company').value;
-            const message = document.getElementById('message').value;
-
-            // Simple form validation
-            if (!name || !email || !company || !message) {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                alert('Thank you for your message! We will get back to you soon.');
-                contactForm.reset();
-                submitBtn.textContent = 'Send Message';
-                submitBtn.disabled = false;
-            }, 1500);
-        });
-    }
-    
-    // Start animations function
-    function startAnimations() {
-        // Trigger scroll animations on page load
-        animateOnScroll();
-        
-        // Start stats counter when about section is in view
-        const aboutSection = document.getElementById('about');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        if (aboutSection) {
-            observer.observe(aboutSection);
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add("visible");
         }
+      });
     }
-});
+    function animateStats() {
+      document.querySelectorAll(".stat-number").forEach((stat) => {
+        const target = parseInt(stat.dataset.count, 10);
+        let current = 0;
+        const step = target / (2000 / 20);
+        const counter = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            stat.textContent = target;
+            clearInterval(counter);
+          } else {
+            stat.textContent = Math.floor(current);
+          }
+        }, 20);
+      });
+    }
+    function startAnimations() {
+      animateOnScroll();
+      const about = document.getElementById("about");
+      new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateStats();
+            obs.disconnect();
+          }
+        });
+      }, { threshold: 0.5 }).observe(about);
+    }
+  });
+  

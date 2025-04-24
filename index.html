@@ -1,202 +1,203 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OptiServe Solution | BPO Services</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OptiServe Solution | BPO Services</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
 </head>
 <body>
-    <div class="cursor"></div>
-    <div class="loader">
-        <div class="loader-text">OptiServe Solution</div>
+  <div class="cursor"></div>
+  <div class="loader">
+    <div class="loader-text">OptiServe Solution</div>
+  </div>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <span>OptiServe</span><span class="highlight">Solution</span>
+      </div>
+      <div class="menu-toggle">
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1 class="animate-text">Optimizing Your Business Process</h1>
+        <p class="animate-text delay-1">
+          Innovative BPO solutions tailored to your business needs
+        </p>
+        <div class="cta-buttons animate-text delay-2">
+          <a href="#contact" class="btn primary">Get Started</a>
+          <a href="#services" class="btn secondary">Our Services</a>
+        </div>
+      </div>
+      <div class="hero-image animate-fade-in">
+        <img
+          src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
+          alt="Business professionals working"
+        />
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="section-header">
+        <h2>Our Services</h2>
+        <p>Comprehensive BPO solutions to streamline your operations</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-headset"></i></div>
+          <h3>Customer Support</h3>
+          <p>24/7 multilingual customer service to enhance client satisfaction and loyalty.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Data Analytics</h3>
+          <p>Transform raw data into actionable insights to drive strategic business decisions.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-cogs"></i></div>
+          <h3>Process Automation</h3>
+          <p>Streamline operations with cutting-edge automation solutions.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+          <h3>Back Office Support</h3>
+          <p>Efficient management of administrative tasks to optimize your core operations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT: no animate-on-scroll classes here so it’s visible immediately -->
+    <section id="about" class="about">
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop"
+          alt="OptiServe office"
+        />
+      </div>
+      <div class="about-content">
+        <h2>About OptiServe Solution</h2>
+        <p>
+          OptiServe Solution is an innovative startup dedicated to revolutionizing business process outsourcing through cutting-edge technology and personalized service.
+        </p>
+        <p>
+          Our fresh approach combines modern automation tools with human expertise to deliver efficient, scalable solutions that help businesses thrive in the digital age.
+        </p>
+        <div class="stats-container">
+          <div class="stat-item">
+            <span class="stat-number" data-count="100">0</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="50">0</span>
+            <span class="stat-label">Happy Clients</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="95">0</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <p>Have a question or want to work together? Send me a message!</p>
+        <form name="contact" method="POST" data-netlify="true">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <label>Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required />
+            <label>Your Email</label>
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <label>Your Message</label>
+          </div>
+          <button type="submit" class="btn primary">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <h3>Email</h3>
+            <p>optiservesolution@gmail.com</p>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/optiserve-solution/" class="social-icon"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <div class="logo"><span>OptiServe</span><span class="highlight">Solution</span></div>
+        <p>Optimizing business processes worldwide</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Customer Support</a></li>
+            <li><a href="#">Data Analytics</a></li>
+            <li><a href="#">Process Automation</a></li>
+            <li><a href="#">Back Office Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">News & Media</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#">Whitepapers</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 OptiServe Solution. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
 
-    <header>
-        <nav>
-            <div class="logo">
-                <span>OptiServe</span>
-                <span class="highlight">Solution</span>
-            </div>
-            <div class="menu-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1 class="animate-text">Optimizing Your Business Process</h1>
-                <p class="animate-text delay-1">Innovative BPO solutions tailored to your business needs</p>
-                <div class="cta-buttons animate-text delay-2">
-                    <a href="#contact" class="btn primary">Get Started</a>
-                    <a href="#services" class="btn secondary">Our Services</a>
-                </div>
-            </div>
-            <div class="hero-image animate-fade-in">
-                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop" alt="Business professionals working">
-            </div>
-        </section>
-
-        <section id="services" class="services">
-            <div class="section-header">
-                <h2>Our Services</h2>
-                <p>Comprehensive BPO solutions to streamline your operations</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Customer Support</h3>
-                    <p>24/7 multilingual customer service to enhance client satisfaction and loyalty.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Data Analytics</h3>
-                    <p>Transform raw data into actionable insights to drive strategic business decisions.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Process Automation</h3>
-                    <p>Streamline operations with cutting-edge automation solutions.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-file-invoice"></i>
-                    </div>
-                    <h3>Back Office Support</h3>
-                    <p>Efficient management of administrative tasks to optimize your core operations.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="about">
-            <div class="about-image animate-on-scroll">
-                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop" alt="OptiServe office">
-            </div>
-            <div class="about-content animate-on-scroll">
-                <h2>About OptiServe Solution</h2>
-                <p>OptiServe Solution is an innovative startup dedicated to revolutionizing business process outsourcing through cutting-edge technology and personalized service.</p>
-                <p>Our fresh approach combines modern automation tools with human expertise to deliver efficient, scalable solutions that help businesses thrive in the digital age.</p>
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="100">0</span>
-                        <span class="stat-label">Projects Completed</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="50">0</span>
-                        <span class="stat-label">Happy Clients</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="95">0</span>
-                        <span class="stat-label">Client Satisfaction</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact" id="contact">
-            <div class="contact-form">
-                <h2>Get in Touch</h2>
-                <p>Have a question or want to work together? Send me a message!</p>
-                <form name="contact" method="POST" data-netlify="true">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <label>Your Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <label>Your Email</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" required></textarea>
-                        <label>Your Message</label>
-                    </div>
-                    <button type="submit" class="btn primary">Send Message</button>
-                </form>
-            </div>
-            <div class="contact-info">
-                <div class="info-item">
-                    <div class="info-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h3>Email</h3>
-                        <p>optiservesolution@gmail.com</p>
-                    </div>
-                </div>
-                <div class="social-links">
-                    <a href=https://www.linkedin.com/company/optiserve-solution/" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div class="logo">
-                    <span>OptiServe</span>
-                    <span class="highlight">Solution</span>
-                </div>
-                <p>Optimizing business processes worldwide</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">Customer Support</a></li>
-                        <li><a href="#">Data Analytics</a></li>
-                        <li><a href="#">Process Automation</a></li>
-                        <li><a href="#">Back Office Support</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Team</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">News & Media</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="#">Whitepapers</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 OptiServe Solution. All rights reserved.</p>
-            <div class="footer-bottom-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Cookie Policy</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
